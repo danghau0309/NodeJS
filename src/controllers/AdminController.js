@@ -1,6 +1,5 @@
 const { response } = require("express");
 const Product = require("../models/product");
-
 class AdminController {
 	admin(req, res, next) {
 		res.render("admin/admin");

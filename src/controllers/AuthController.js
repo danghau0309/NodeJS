@@ -1,10 +1,10 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 class AuthController {
-	login(req, res) {
+	renderLogin(req, res) {
 		res.render("auth/login");
 	}
-	async checkLogin(req, res) {
+	async login(req, res) {
 		try {
 			const user = await User.findOne({
 				username: req.body.username,
@@ -12,7 +12,16 @@ class AuthController {
 			});
 			const { username, password } = req.body;
 			if (user) {
-				res.redirect("/");
+				req.session.isLoggedIn = true;
+				req.session.username = user.username;
+				console.log(req.session);
+				console.log(req.session.isLoggedIn);
+				req.session.save((err) => {
+					if (err) {
+						console.error(err);
+					}
+					res.status(200).redirect("/");
+				});
 			} else if (!username || !password) {
 				res.status(403).send("Invalid username or password");
 			} else {
@@ -22,6 +31,7 @@ class AuthController {
 			res.status(400).send("Error ...");
 		}
 	}
+
 	// GET auth/signup
 	signup(req, res) {
 		res.render("auth/signup");
@@ -44,6 +54,11 @@ class AuthController {
 			console.error("Error:", error);
 			return res.status(500).json({ message: error.message });
 		}
+	}
+	logout(req, res, next) {
+		req.session.destroy((err) => {
+			res.redirect("/");
+		});
 	}
 }
 module.exports = new AuthController();
