@@ -1,7 +1,7 @@
 const Product = require("../models/product");
 const Cart = require("../models/cart");
 class ProductController {
-	detailProduct(req, res, next) {
+	productDetail(req, res, next) {
 		Product.findOne({ slug: req.params.slug })
 			.then((detail) => {
 				res.render("showDetails/detail", { detail });
