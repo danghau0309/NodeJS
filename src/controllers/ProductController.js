@@ -1,12 +1,10 @@
 const Product = require("../models/product");
 const Cart = require("../models/cart");
 class ProductController {
-	productDetail(req, res, next) {
-		Product.findOne({ slug: req.params.slug })
-			.then((detail) => {
-				res.render("showDetails/detail", { detail });
-			})
-			.catch(next);
+	async productDetail(req, res, next) {
+		const showDetail = await Product.findOne({ slug: req.params.slug });
+		await Product.findOneAndUpdate({ slug: req.params.slug }, { $inc: { view: 1 } });
+		res.render("showDetails/detail", { showDetail });
 	}
 
 	async showHome(req, res, next) {

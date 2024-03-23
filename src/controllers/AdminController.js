@@ -26,7 +26,8 @@ class AdminController {
 				price,
 				description,
 				image,
-				bestselling_Product: 0
+				bestselling_Product: 0,
+				view: 1
 			});
 			res.redirect("/admin/addProduct");
 		} catch (error) {
