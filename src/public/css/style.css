@@ -1013,6 +1013,7 @@ td .bxs-x-circle {
 
 #stateLogin {
     text-align: center;
+    display: block;
     width: 100%;
     background: var(--main-color);
     padding: 10px;
