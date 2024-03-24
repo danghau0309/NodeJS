@@ -245,9 +245,14 @@ header a img {
     margin-top: 3rem;
     
 } */
+.detail {
+    width: 70%;
+    margin: 0 auto;
+
+}
 
 .box-detail {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 5rem auto;
     display: flex;
     justify-content: space-around;
@@ -969,6 +974,87 @@ td .bxs-x-circle {
 .bxs-user-account {
     font-weight: 500;
 }
+
+
+.comments {
+    width: 100%
+        /* display: grid;
+    justify-content: center; */
+
+}
+
+.comments textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    box-shadow: 10px 10px 20px #f8f7f7, -10px -10px 20px #f3f3f3;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    height: 90px;
+}
+
+.comments h2 {
+    margin-bottom: 0.5rem;
+}
+
+.comments #sendComment {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 16px;
+    background: var(--main-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#stateLogin {
+    text-align: center;
+    width: 100%;
+    background: var(--main-color);
+    padding: 10px;
+    color: var(--text-color);
+    border-radius: 16px;
+}
+
+.fa-paper-plane {
+    margin-left: 6px;
+}
+
+#listComments {
+    margin-top: 2rem;
+    box-shadow: 10px 10px 20px #f8f7f7, -10px -10px 20px #f3f3f3;
+    padding: 10px;
+    border-radius: 16px;
+
+}
+
+#contentOfUser {
+    width: 100%;
+    display: block;
+    padding: 5px;
+    border-radius: 8px;
+
+}
+
+.boxComment {
+    padding: 5px 0;
+}
+
+#time {
+    display: inline;
+    margin-left: 20px;
+    color: #9b9a9a;
+    font-size: 0.8rem;
+}
+
+.boxComment .lineComment {
+    border: 1px solid #eee;
+}
+
 
 @media (max-width: 770px) {
     #footer .footer-container {

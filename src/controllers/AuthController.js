@@ -14,8 +14,7 @@ class AuthController {
 			if (user) {
 				req.session.isLoggedIn = true;
 				req.session.username = user.username;
-				console.log(req.session);
-				console.log(req.session.isLoggedIn);
+
 				req.session.save((err) => {
 					if (err) {
 						console.error(err);

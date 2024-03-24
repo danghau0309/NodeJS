@@ -10,6 +10,7 @@ const { allowInsecurePrototypeAccess } = require("@handlebars/allow-prototype-ac
 const methodOverride = require("method-override");
 const route = require("./routes");
 const session = require("express-session");
+
 // setup session
 app.use(
 	session({
@@ -21,6 +22,9 @@ app.use(
 app.use((req, res, next) => {
 	if (req.session.isLoggedIn) {
 		res.locals.isLoggedIn = req.session.isLoggedIn;
+	} else {
+		req.session.isLoggedIn = false;
+		res.locals.isLoggedIn = false;
 	}
 	next();
 });

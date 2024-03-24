@@ -17,14 +17,27 @@
 
 	</div>
 	<div id="notifi"></div>
-</section>
 
-{{!-- <div class="box">
-	<div class="box-image">
-		<a href="/product/{{showDetail.slug}}"> <img src="../img/{{showDetail.image}}" alt="" /></a>
-	</div>
-	<span class="price">Giá : {{showDetail.price}}</span>
-	<a href="/product/{{this.slug}}">
-		<span class="name">Tên sản phẩm : {{this.name}}</span></a>
-	<button id="btn">Mua ngay</button>
-</div> --}}
+	<form class="comments" method="POST">
+		<h2>Bình luận</h2>
+		<textarea id="inforComment" name="content"></textarea>
+		{{#if isLoggedIn}}
+			<button id="sendComment" type="submit">Send
+				<i class="fa-solid fa-paper-plane"></i></button>
+		{{else}}
+			<a href="/auth/login" id="stateLogin">Vui lòng đăng nhập để bình luận</a>
+		{{/if}}
+		<div id="listComments">
+			{{#each commentList}}
+				<div class="boxComment">
+					<span><i class="bx bxs-user-circle"></i>
+						{{this.username}}
+						<p id="time"><i class="bx bx-time-five"></i> {{this.commentTime}}</p>
+					</span><br />
+					<span id="contentOfUser">{{this.content}}</span>
+					<hr class="lineComment" />
+				</div>
+			{{/each}}
+		</div>
+	</form>
+</section>
